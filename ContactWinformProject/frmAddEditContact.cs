@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ContactWinformProject
 {
-    public partial class Form1 : Form
+    public partial class frmAddEditContact : Form
     {
-        public Form1()
+        public frmAddEditContact()
         {
             InitializeComponent();
         }
