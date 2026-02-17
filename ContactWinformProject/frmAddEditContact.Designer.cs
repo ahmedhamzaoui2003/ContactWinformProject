@@ -49,7 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblContactID = new System.Windows.Forms.Label();
             this.lable1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbContactImage)).BeginInit();
@@ -114,6 +114,7 @@
             this.lnkRemoveImage.TabIndex = 51;
             this.lnkRemoveImage.TabStop = true;
             this.lnkRemoveImage.Text = "Remove";
+            this.lnkRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoveImage_LinkClicked);
             // 
             // lnkSetImage
             // 
@@ -125,6 +126,7 @@
             this.lnkSetImage.TabIndex = 50;
             this.lnkSetImage.TabStop = true;
             this.lnkSetImage.Text = "Set Image";
+            this.lnkSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSetImage_LinkClicked);
             // 
             // txtAddress
             // 
@@ -280,16 +282,17 @@
             this.lable1.TabIndex = 34;
             this.lable1.Text = "Contact ID";
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.BackColor = System.Drawing.Color.LemonChiffon;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(32, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 54);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(32, 260);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(160, 54);
+            this.btnSave.TabIndex = 35;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -301,6 +304,7 @@
             this.btnClose.TabIndex = 36;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmAddEditContact
             // 
@@ -309,11 +313,12 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1023, 642);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTitle);
             this.Name = "frmAddEditContact";
             this.Text = "frmAddEditContact";
+            this.Load += new System.EventHandler(this.frmAddEditContact_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbContactImage)).EndInit();
@@ -345,7 +350,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblContactID;
         private System.Windows.Forms.Label lable1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
     }
 }

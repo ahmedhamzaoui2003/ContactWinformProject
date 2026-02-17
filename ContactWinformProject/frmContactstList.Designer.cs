@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContactstList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvContactsList = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnAddNewContact = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactsList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(85, 35);
+            this.label1.Location = new System.Drawing.Point(75, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 45);
             this.label1.TabIndex = 1;
@@ -77,14 +84,42 @@
             this.dgvContactsList.AllowUserToAddRows = false;
             this.dgvContactsList.AllowUserToDeleteRows = false;
             this.dgvContactsList.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle2.NullValue = "null";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dgvContactsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvContactsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvContactsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContactsList.Location = new System.Drawing.Point(320, 100);
+            this.dgvContactsList.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvContactsList.Location = new System.Drawing.Point(320, 96);
             this.dgvContactsList.Name = "dgvContactsList";
             this.dgvContactsList.ReadOnly = true;
             this.dgvContactsList.RowHeadersWidth = 51;
             this.dgvContactsList.RowTemplate.Height = 24;
-            this.dgvContactsList.Size = new System.Drawing.Size(816, 437);
+            this.dgvContactsList.Size = new System.Drawing.Size(816, 372);
             this.dgvContactsList.TabIndex = 7;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEdit,
+            this.tsmDelete});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 52);
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(122, 24);
+            this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(122, 24);
+            this.tsmDelete.Text = "Delete";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // label2
             // 
@@ -100,7 +135,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(15, 178);
+            this.pictureBox2.Location = new System.Drawing.Point(15, 160);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(253, 191);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,19 +150,24 @@
             this.btnAddNewContact.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddNewContact.Font = new System.Drawing.Font("Noto Naskh Arabic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewContact.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAddNewContact.Location = new System.Drawing.Point(34, 414);
+            this.btnAddNewContact.Location = new System.Drawing.Point(34, 393);
             this.btnAddNewContact.Name = "btnAddNewContact";
             this.btnAddNewContact.Size = new System.Drawing.Size(216, 90);
             this.btnAddNewContact.TabIndex = 3;
             this.btnAddNewContact.Text = "Add New Contact";
             this.btnAddNewContact.UseVisualStyleBackColor = false;
+            this.btnAddNewContact.Click += new System.EventHandler(this.btnAddNewContact_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmContactstList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1148, 549);
+            this.ClientSize = new System.Drawing.Size(1148, 502);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvContactsList);
             this.Controls.Add(this.pictureBox2);
@@ -135,11 +175,13 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmContactstList";
-            this.Text = "Contact";
+            this.Text = "Contact App";
+            this.Load += new System.EventHandler(this.frmContactstList_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContactsList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,6 +197,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddNewContact;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

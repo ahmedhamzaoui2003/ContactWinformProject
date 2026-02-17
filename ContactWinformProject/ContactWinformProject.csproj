@@ -104,5 +104,11 @@
   <ItemGroup>
     <None Include="Resources\user %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ContactConsoleApp-Backend\clsBusinessLayer\clsBusinessLayer.csproj">
+      <Project>{850074f5-6c07-4ea3-93ac-bd4ea54856cf}</Project>
+      <Name>clsBusinessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
