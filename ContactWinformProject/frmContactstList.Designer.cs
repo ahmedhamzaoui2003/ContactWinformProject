@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContactstList));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -84,9 +84,9 @@
             this.dgvContactsList.AllowUserToAddRows = false;
             this.dgvContactsList.AllowUserToDeleteRows = false;
             this.dgvContactsList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.NullValue = "null";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dgvContactsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = "null";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dgvContactsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvContactsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvContactsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvContactsList.ContextMenuStrip = this.contextMenuStrip1;
@@ -131,6 +131,7 @@
             this.label2.Size = new System.Drawing.Size(358, 62);
             this.label2.TabIndex = 9;
             this.label2.Text = "Contacts List";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox2
             // 

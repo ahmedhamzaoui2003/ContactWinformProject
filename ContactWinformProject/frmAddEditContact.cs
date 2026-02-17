@@ -35,11 +35,15 @@ namespace ContactWinformProject
 
         private void _FillCountriesInComboBox()
         {
-            DataTable dtCountries = clsCountry.GetAllCountries();
+            /*DataTable dtCountries = clsCountry.GetAllCountries();
             foreach(DataRow row in dtCountries.Rows)
             {
                 cbCountries.Items.Add(row["CountryName"]);
-            }
+            }*/
+
+            cbCountries.DataSource = clsCountry.GetAllCountries();
+            cbCountries.DisplayMember = "CountryName";
+            cbCountries.ValueMember = "CountryID";
         }
 
         private void _LoadData()
@@ -72,9 +76,13 @@ namespace ContactWinformProject
 
             lnkRemoveImage.Visible = (_Contact.ImagePath != null);
 
+
             // Dealing with CountryName in ComboBox : we need to show the specific CountryName of the selected contact directly :
-            string CountryName = clsCountry.Find(_Contact.CountryID).CountryName;
-            cbCountries.SelectedIndex = cbCountries.FindStringExact(CountryName);
+            /* string CountryName = clsCountry.Find(_Contact.CountryID).CountryName;
+             cbCountries.SelectedIndex = cbCountries.FindStringExact(CountryName);*/
+
+            //Other method to deal with CountryName : 
+            cbCountries.SelectedValue = _Contact.CountryID;
 
 
         }
@@ -113,15 +121,15 @@ namespace ContactWinformProject
         private void btnSave_Click(object sender, EventArgs e)
         {
             // Find the CountryID from the comboBox (selected text ) 
-            int CountryID = clsCountry.Find(cbCountries.Text).CountryID;
-
+            //int CountryID = clsCountry.Find(cbCountries.Text).CountryID;
+            
             // Load Data in the contact object :
             _Contact.FirstName = txtFirstName.Text;
             _Contact.LastName = txtLastName.Text;
             _Contact.Email = txtEmail.Text;
             _Contact.Phone = txtPhone.Text;
             _Contact.DateOfBirth = dtpDateOfBirth.Value;
-            _Contact.CountryID = CountryID;
+            _Contact.CountryID = (int)cbCountries.SelectedValue;
             _Contact.Address = txtAddress.Text;
 
             if (pbContactImage.ImageLocation != null)
@@ -138,6 +146,7 @@ namespace ContactWinformProject
                     lblTitle.Text = "Edit Contact With ID = " + _Contact.ID;
                     lblContactID.Text = _Contact.ID.ToString();
                     _Mode = enMode.Update;
+                    MessageBox.Show($"New Contact With ID = [{_Contact.ID}] was inserted successfully !");
                 }
                 else
                     MessageBox.Show($"Contact [{_Contact.ID}] was updated successfully !");

@@ -58,7 +58,6 @@ namespace ContactWinformProject
                     if (clsContact.DeleteContact(ContactID))
                     {
                         MessageBox.Show($"Contact [ {ContactID} ] was deleted successfully ", "Success");
-                        return;
                     }
                     else
                         MessageBox.Show($"Faild to delete contact [ {ContactID} ]");
@@ -69,6 +68,11 @@ namespace ContactWinformProject
 
             // Refresh Data :
             _FillGridViewWithContacts();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
